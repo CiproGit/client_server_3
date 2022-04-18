@@ -4,5 +4,5 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SUBDIRS += \
-    client \
-    server
+        client \
+        server

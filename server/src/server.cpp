@@ -1,6 +1,5 @@
 #include "../include/server.h"
 #include <iostream>
-#include <QByteArray>
 #include <QThread>
 
 using namespace std;

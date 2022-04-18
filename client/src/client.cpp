@@ -1,6 +1,5 @@
 #include "../include/client.h"
 #include <iostream>
-#include <QByteArray>
 
 using namespace std;
 
