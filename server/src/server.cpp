@@ -17,7 +17,7 @@ namespace communication {
 	void Server::salutation() {
 		QByteArray outgoing_message = QByteArray("Hello there!");
 		cout << "Outgoing message: " << QString(outgoing_message).toStdString() << '\n';
-		cout << this->tcp_socket->write(outgoing_message) << " bytes sent" << endl;
+		cout << this->tcp_socket->write(outgoing_message) << " bytes sent\n" << endl;
 		this->tcp_socket->flush();
 
 		QThread::sleep(1);
@@ -26,7 +26,7 @@ namespace communication {
 	void Server::question() {
 		QByteArray outgoing_message = QByteArray("Answer to the ultimate question of life, the universe and everything?");
 		cout << "Outgoing message: " << QString(outgoing_message).toStdString() << '\n';
-		cout << this->tcp_socket->write(outgoing_message) << " bytes sent" << endl;
+		cout << this->tcp_socket->write(outgoing_message) << " bytes sent\n" << endl;
 		this->tcp_socket->flush();
 	}
 
@@ -34,12 +34,12 @@ namespace communication {
 		this->tcp_socket->waitForReadyRead();
 		QByteArray ingoing_message = this->tcp_socket->readAll();
 		cout << ingoing_message.size() << " bytes received\n";
-		cout << "Ingoing message: " << QString(ingoing_message).toStdString() << endl;
+		cout << "Ingoing message: " << QString(ingoing_message).toStdString() << '\n' << endl;
 	}
 
 	bool Server::start() {
 		if (this->tcp_server.listen(QHostAddress(HOST_ADDRESS), PORT)) {
-			cout << "Server listening..." << endl;
+			cout << "Server listening...\n" << endl;
 		}
 		else {
 			cerr << "Error: server not listening" << endl;
@@ -61,7 +61,7 @@ namespace communication {
 	void Server::on_timeout() {
 		QByteArray outgoing_message = QByteArray("Don't panic");
 		cout << "Outgoing message: " << QString(outgoing_message).toStdString() << '\n';
-		cout << this->tcp_socket->write(outgoing_message) << " bytes sent" << endl;
+		cout << this->tcp_socket->write(outgoing_message) << " bytes sent\n" << endl;
 		this->tcp_socket->flush();
 	}
 } // namespace communication
